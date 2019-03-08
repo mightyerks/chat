@@ -19,3 +19,8 @@ var Chat = module.exports = mongoose.model("Chat", ChatSchema);
 module.exports.getChat = function(callback, limit){
     Chat.find(callback).limit(limit);
 };
+
+// get chat by roomname
+module.exports.getChatByRoom = function(room, callback){
+    Chat.find({ room : room }, callback);
+};

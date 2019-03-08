@@ -24,7 +24,7 @@ app.get('/api/eventlog', router);
 // middleware
 app.use(express.static(__dirname));
 app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({extended: false}))
+app.use(bodyParser.urlencoded({extended: true}));
 
 // database
 mongoose.Promise = global.Promise;
