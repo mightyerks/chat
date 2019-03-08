@@ -13,4 +13,8 @@ const EventSchema = new Schema(
 );
 
 // export the new Schema so we could modify it using Node.js
-module.exports = mongoose.model("Event", EventSchema);
+var Event = module.exports = mongoose.model("Event", EventSchema);
+
+module.exports.getEvent = function(callback, limit){
+    Event.find(callback).limit(limit);
+};

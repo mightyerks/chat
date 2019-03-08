@@ -13,4 +13,9 @@ const ChatSchema = new Schema(
 );
 
 // export the new Schema so we could modify it using Node.js
-module.exports = mongoose.model("Chat", ChatSchema);
+var Chat = module.exports = mongoose.model("Chat", ChatSchema);
+
+// get all chat
+module.exports.getChat = function(callback, limit){
+    Chat.find(callback).limit(limit);
+};

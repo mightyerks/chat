@@ -14,7 +14,12 @@ var config = require("./config/db");
 
 // chat route (commands to read db)
 var router = require('./routes/router')
-app.use('/api', router);
+// express api route
+app.post('/api/roomhistory', router);
+// express api route
+app.get('/api/history', router);
+// express api route
+app.get('/api/eventlog', router);
 
 // middleware
 app.use(express.static(__dirname));

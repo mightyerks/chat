@@ -31,12 +31,31 @@ var io = require('socket.io')(http);
     -   Returns a JSON list of all events in the event log
 */
 
-router.get('/history', (req, res, next) => {
-    Chat.find({},(err, messages)=> {
-        if(err) throw err;
-        res.send(JSON.stringify(messages, null, 4))
-    })
+// get all chat history
+router.get('/api/history', (req, res) => {
+    Chat.getChat(function (err, chats){
+        if(err){
+            throw err;
+        }
+        res.json(chats);
+    });
 });
+
+// get chat history by room
+router.post('/api/roomhistory', (req, res) => {
+    res.send(req.body);
+})
+
+// get all eventlogs
+router.get('/api/eventlog', (req, res) => {
+    Event.getEvent(function (err, events){
+        if(err){
+            throw err;
+        }
+        res.json(events);
+    })
+})
+
 module.exports = router;
 
   
