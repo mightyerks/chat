@@ -7,7 +7,7 @@
     "test": "jasmine",
     "start": "node server.js"
   },
-  "author": "",
+  "author": "Erika Gilo 101085825, Jamaeca Navarette 101088700",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.18.3",

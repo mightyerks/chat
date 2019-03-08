@@ -15,7 +15,6 @@ var io = require('socket.io')(http);
 // chatRoute.get('/', (req, res) => {
 //     res.status(200).json({ message: 'Connected!' });
 // });
-
 // 
 
 /*
@@ -31,6 +30,13 @@ var io = require('socket.io')(http);
     -   GET request /api/eventlog
     -   Returns a JSON list of all events in the event log
 */
+
+router.get('/history', (req, res, next) => {
+    Chat.find({},(err, messages)=> {
+        if(err) throw err;
+        res.send(JSON.stringify(messages, null, 4))
+    })
+});
 module.exports = router;
 
   

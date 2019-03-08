@@ -8,7 +8,7 @@
     <!--[if IE]>
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <![endif]-->
-    <title>BOOTSTRAP CHAT EXAMPLE</title>
+    <title>CHAT-APP</title>
     <!-- BOOTSTRAP CORE STYLE CSS -->
     <link href="./public/style.css" rel="stylesheet" />
     <script src="/socket.io/socket.io.js"></script>
@@ -24,6 +24,10 @@
     </div>
 	<div class="col-md-8">
         <div class="panel panel-info">
+            <div id="change_username">
+            <input id="username" type="text" />
+            <button id="send_username" type="button">Add username</button>
+            </div>
             <div class="panel-heading">
                 CHAT MESSAGES
             </div>

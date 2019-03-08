@@ -1,13 +1,29 @@
 var socket = io.connect('http://localhost:3000');
+
 // on connection to server, ask for user's name with an anonymous callback
-socket.on('connect', function(){
-    // call the server-side function 'adduser' and send one parameter (value of prompt)
-    socket.emit('adduser', prompt("What's your name?"));
-});
+// socket.on('connect', function(){
+//     // call the server-side function 'adduser' and send one parameter (value of prompt)
+//     socket.emit('adduser', prompt("What's your name?"));
+// });
 // listener, whenever the server emits 'updatechat', this updates the chat body
+
 socket.on('updatechat', function (username, data) {
     $('#conversation').append('<b>'+username + ':</b> ' + data + '<br>');
 });
+
+
+    // alert("A username is required to enter chat rooms");
+    $(function(){
+        // when the client clicks SEND
+        $('#send_username').click( function() {
+            var user = $('#username').val();
+            $('#username').val('');
+            // tell server to execute 'sendchat' and send along one parameter
+            socket.emit('adduser', user);
+        });
+    });
+
+
 // listener, whenever the server emits 'updaterooms', this updates the room the client is in
 socket.on('updaterooms', function(rooms, current_room) {
     $('#rooms').empty();

@@ -15,6 +15,7 @@ var rooms = ['Main Room', 'No Boys Allowed', 'No Girls Allowed'];
 module.exports = (io) => {
  // socket.io
  io.sockets.on('connection', function (socket) {
+     console.log('A user connected');
      // when the client emits 'adduser', this listens and executes
      socket.on('adduser', function(username){
          // store the username in the socket session for this client

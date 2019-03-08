@@ -14,12 +14,12 @@ var config = require("./config/db");
 
 // chat route (commands to read db)
 var router = require('./routes/router')
-// app.use('/api', router);
+app.use('/api', router);
 
 // middleware
 app.use(express.static(__dirname));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}))
+// app.use(bodyParser.urlencoded({extended: false}))
 
 // database
 mongoose.Promise = global.Promise;

@@ -12,7 +12,7 @@ chatRoute.get('/', (req, res) => {
 
 chatRoute.get('/messages', (req, res) => {
     Message.find({},(err, messages)=> {
-        res.send(messages);
+        res.status(200).json(message);
     })
 });
 
