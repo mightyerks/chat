@@ -5,7 +5,7 @@ Jamaeca Navarrete - 101088700
 # chat-room
 
 # Install Dependencies
--cd backend
+-cd backend\n
 -npm i
 
 # To Run
