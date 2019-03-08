@@ -15,7 +15,7 @@ var config = require("./config/db");
 // chat route (commands to read db)
 var router = require('./routes/router')
 // express api route
-app.post('/api/roomhistory', router);
+app.post('/api/roomhistory?', router);
 // express api route
 app.get('/api/history', router);
 // express api route
